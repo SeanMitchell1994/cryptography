@@ -5,7 +5,7 @@ def Read_File(filename):
     lines = []
     for line in f:
         lines.append(line)
-        
+
     lines = [x.strip() for x in lines]
 
     return lines
