@@ -5,17 +5,8 @@ def Encrypt(plaintext):
     temp_string = ""
     for c in plaintext:
         distance = ord('a') - ord(c)
-        print(distance)
         swap = ord('z') + distance
-        print(chr(swap))
-        # if c.lower == "z":
-        #     c = "a"
-        # temp = (ord(c) + 13)
-        # if temp < ord('a'):
-        #     temp_string += " "
-        # else:
-        #     c = chr(temp)
-        #     temp_string += c
+        temp_string += chr(swap)
 
     return temp_string
 
