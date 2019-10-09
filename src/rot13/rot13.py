@@ -6,7 +6,7 @@ def Encrypt(plaintext, shift):
     for c in plaintext:
         if c.lower == "z":
             c = "a"
-        temp = (ord(c) + shift)
+        temp = (ord(c) + 13)
         if temp < ord('a'):
             temp_string += " "
         else:
@@ -19,7 +19,7 @@ def Decrypt(ciphertext, shift):
 
     temp_string = ""
     for c in ciphertext:
-        temp = ord(c) - shift
+        temp = ord(c) - 13
         if temp < ord('a'):
             temp_string += " "
         else:
