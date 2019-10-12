@@ -1,6 +1,6 @@
 from rail_fence import *
 
-word = "defend the east wall of the castle!./"
+word = "defend the east wall of the castle"
 print("Original word: " + word)
 encrpyted_word = Encrypt(word, 3)
 print("Encrypted word: " + encrpyted_word)
