@@ -1,4 +1,5 @@
 from file_utils import *
+from ascii_utils import *
 
 def Encrypt(plaintext, shift):
 
@@ -7,8 +8,8 @@ def Encrypt(plaintext, shift):
         if c.lower == "z":
             c = "a"
         temp = (ord(c) + shift)
-        if temp < ord('a'):
-            temp_string += " "
+        if Is_Special_Character(c):
+            temp_string += c
         else:
             c = chr(temp)
             temp_string += c
@@ -20,8 +21,8 @@ def Decrypt(ciphertext, shift):
     temp_string = ""
     for c in ciphertext:
         temp = ord(c) - shift
-        if temp < ord('a'):
-            temp_string += " "
+        if Is_Special_Character(c):
+            temp_string += c
         else:
             c = chr(temp)
             temp_string += c
