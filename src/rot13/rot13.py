@@ -1,7 +1,7 @@
 from file_utils import *
 from ascii_utils import *
 
-def Encrypt(plaintext, shift):
+def Encrypt(plaintext):
 
     temp_string = ""
     for c in plaintext:
@@ -15,7 +15,7 @@ def Encrypt(plaintext, shift):
 
     return temp_string
 
-def Decrypt(ciphertext, shift):
+def Decrypt(ciphertext):
 
     temp_string = ""
     for c in ciphertext:
