@@ -7,7 +7,7 @@ def Encrypt(plaintext, shift):
     for c in plaintext:
         temp = (ord(c) + 13)
         if Is_Special_Character(c):
-            temp_string += " "
+            temp_string += c
         else:
             temp = ascii_range_reset(temp)
             c = chr(temp)
@@ -21,7 +21,7 @@ def Decrypt(ciphertext, shift):
     for c in ciphertext:
         temp = ord(c) - 13
         if Is_Special_Character(c):
-            temp_string += " "
+            temp_string += c
         else:
             temp = ascii_range_reset(temp)
             c = chr(temp)
