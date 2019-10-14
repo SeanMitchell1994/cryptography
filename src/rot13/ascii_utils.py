@@ -12,6 +12,8 @@ def ascii_range_reset(input_ascii):
     temp = 0
     if (input_ascii > 122):
         temp = input_ascii - 26
+    elif (input_ascii < 97):
+        temp = input_ascii + 26
     else:
         temp = input_ascii
     #print(temp)

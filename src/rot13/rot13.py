@@ -5,8 +5,6 @@ def Encrypt(plaintext, shift):
 
     temp_string = ""
     for c in plaintext:
-        #if c.lower == "z":
-        #    c = "a"
         temp = (ord(c) + 13)
         if Is_Special_Character(c):
             temp_string += " "
@@ -25,6 +23,7 @@ def Decrypt(ciphertext, shift):
         if Is_Special_Character(c):
             temp_string += " "
         else:
+            temp = ascii_range_reset(temp)
             c = chr(temp)
             temp_string += c
 
