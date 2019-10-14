@@ -16,5 +16,5 @@ def ascii_range_reset(input_ascii):
         temp = input_ascii + 26
     else:
         temp = input_ascii
-    #print(temp)
+
     return temp
