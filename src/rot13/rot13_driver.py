@@ -1,6 +1,6 @@
 from rot13 import *
 
-word = "defend the east wall of the castle"
+word = "attack at dawn"
 print("Original word: " + word)
 encrpyted_word = Encrypt(word, 3)
 print("Encrypted word: " + encrpyted_word)
