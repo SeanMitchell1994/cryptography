@@ -24,12 +24,5 @@ def Decrypt(ciphertext):
             distance = ord('z') - ord(c)
             swap = ord('a') + distance
             temp_string += chr(swap)
-    #for c in ciphertext:
-    #    temp = ord(c) - 13
-    #    if temp < ord('a'):
-    #        temp_string += " "
-    #    else:
-    #        c = chr(temp)
-    #        temp_string += c
 
     return temp_string

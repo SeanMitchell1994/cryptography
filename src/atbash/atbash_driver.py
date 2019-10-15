@@ -1,6 +1,6 @@
 from atbash import *
 
-word = "abcdefghijkl !!/||mnopqrstuvwxyz"
+word = "abcdefghijklmnopqrstuvwxyz"
 print("Original word: " + word)
 encrpyted_word = Encrypt(word)
 print("Encrypted word: " + encrpyted_word)
