@@ -36,3 +36,24 @@ def Decrypt(ciphertext, rails):
 
     temp_string = ""
     return temp_string
+
+def test2(n):
+    for i in list(range(0, n + 1)) + list(range(n-1, -1, -1)):
+        print(i)
+
+def Next(cur_index):
+    # Returns next index
+
+    chk = False
+    count = 0
+
+    if (chk == False):
+        count += 1
+        if (count >= 3):
+            count = 3
+            chk = True
+    elif (chk == True):
+        count -= 1
+        if (count <= 0):
+            count = 0
+            chk = False
