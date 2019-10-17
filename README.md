@@ -2,4 +2,5 @@
 
 ## Current ciphers
 * Caesar
+* Rot13
 
