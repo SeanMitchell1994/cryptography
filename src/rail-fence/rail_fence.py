@@ -6,37 +6,32 @@ def Encrypt(plaintext, rails):
     temp_string = ""
     length = len(plaintext)
     string_arr = [""] * 3
-    count = 0
+    count = -1
     chk = False
+    plaintext = "abcd"
 
-    #for i in range(rails):
-    #    for j in range(length):
-    #        print("* ",end="")
-    #    print("")
-
-    for c in range(6):
+    # This top loop is the length of the string to be encoded
+    for c in plaintext:
+        # This inner loop is the number of rails to be used
         for rail in range(rails):
-            if rail == count:
-                #print(Next(rail))
-                #print("1 ")
-                print(count)
-                string_arr[count] += str(count)
-            #else:
-                #print("")
-        #print(" ")
+            # Figure out if we are going up or down
+            if (chk == False):
+                if (count >= 2):
+                    count = 1
+                    chk = True
+                else:
+                    count += 1
+            elif (chk == True):
+                count -= 1
+                if (count < 0):
+                    count = 1
+                    chk = False
+            # This is broken
+            # It appends to the array for every iteration, not just the correct indices
+            print("rail: " + str(rail) + ", count: " + str(count) + " char: " + str(c))
+            string_arr[count] += str(c)
+            break
 
-        if (chk == False):
-
-            if (count > 2):
-                count = 1
-                chk = True
-            else:
-                count += 1
-        elif (chk == True):
-            count -= 1
-            if (count < 0):
-                count = 0
-                chk = False
 
     for i in string_arr:
         temp_string += i
