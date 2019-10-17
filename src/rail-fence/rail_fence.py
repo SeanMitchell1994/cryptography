@@ -4,38 +4,34 @@ from ascii_utils import *
 def Encrypt(plaintext, rails):
 
     temp_string = ""
-    length = len(plaintext)
-    string_arr = [""] * 3
+    string_arr = [""] * rails
     count = -1
     chk = False
-    plaintext = "abcd"
 
-    # This top loop is the length of the string to be encoded
+    # This loop is index by the string to be encoded
     for c in plaintext:
-        # This inner loop is the number of rails to be used
-        for rail in range(rails):
-            # Figure out if we are going up or down
-            if (chk == False):
-                if (count >= 2):
-                    count = 1
-                    chk = True
-                else:
-                    count += 1
-            elif (chk == True):
-                count -= 1
-                if (count < 0):
-                    count = 1
-                    chk = False
-            # This is broken
-            # It appends to the array for every iteration, not just the correct indices
-            print("rail: " + str(rail) + ", count: " + str(count) + " char: " + str(c))
-            string_arr[count] += str(c)
-            break
+        # Figure out if we are going up or down
+        if (chk == False):
+            # going down
+            if (count >= (rails - 1)):
+                count = (rails - 2)
+                chk = True
+            else:
+                count += 1
+        elif (chk == True):
+            # going up
+            count -= 1
+            if (count < 0):
+                count = 1
+                chk = False
 
+        #print("count: " + str(count) + " char: " + str(c))
+        string_arr[count] += str(c)
 
+    # concatenate resulting string
     for i in string_arr:
         temp_string += i
-    print(string_arr)
+    #print(string_arr)
 
     return temp_string
 
