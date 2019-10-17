@@ -7,6 +7,7 @@ def Encrypt(plaintext, rails):
     length = len(plaintext)
     string_arr = [""] * 3
     count = 0
+    chk = False
 
     #for i in range(rails):
     #    for j in range(length):
@@ -16,19 +17,30 @@ def Encrypt(plaintext, rails):
     for c in range(6):
         for rail in range(rails):
             if rail == count:
+                #print(Next(rail))
                 #print("1 ")
-                string_arr[rail] += str(count)
+                print(count)
+                string_arr[count] += str(count)
             #else:
-                #print("*")
-        #print("")
+                #print("")
+        #print(" ")
 
-        count += 1
-        if (count >= 3):
-            count = 0
+        if (chk == False):
+
+            if (count > 2):
+                count = 1
+                chk = True
+            else:
+                count += 1
+        elif (chk == True):
+            count -= 1
+            if (count < 0):
+                count = 0
+                chk = False
 
     for i in string_arr:
         temp_string += i
-    #print(string_arr)
+    print(string_arr)
 
     return temp_string
 
@@ -41,19 +53,20 @@ def test2(n):
     for i in list(range(0, n + 1)) + list(range(n-1, -1, -1)):
         print(i)
 
-def Next(cur_index):
-    # Returns next index
+def Next(count):
+    # Returns next index of the rail
 
     chk = False
-    count = 0
+    #count = 0
 
     if (chk == False):
         count += 1
-        if (count >= 3):
+        if (count > 3):
             count = 3
             chk = True
     elif (chk == True):
         count -= 1
-        if (count <= 0):
-            count = 0
+        if (count > 3):
+            count = 3
             chk = False
+    return count
