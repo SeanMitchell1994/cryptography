@@ -8,6 +8,8 @@ def Encrypt(plaintext, rails):
     count = -1
     chk = False
 
+    plaintext = plaintext.replace(" ", "")
+
     # This loop is index by the string to be encoded
     for c in plaintext:
         # Figure out if we are going up or down
