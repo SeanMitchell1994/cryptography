@@ -40,6 +40,16 @@ def Encrypt(plaintext, rails):
 def Decrypt(ciphertext, rails):
 
     temp_string = ""
+    string_arr = [""] * rails
+    count = -1
+    chk = False
+    #i = 0
+    #j = 0
+
+    for i in range(0,len(ciphertext),rails):
+        print(ciphertext[(i - rails):i])
+
+
     return temp_string
 
 def test2(n):
