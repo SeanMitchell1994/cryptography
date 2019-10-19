@@ -4,4 +4,4 @@
 * Caesar
 * Rot13
 * Atbash
-
+* Rail Fence
