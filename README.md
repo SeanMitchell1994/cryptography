@@ -5,4 +5,4 @@
 * Rot13
 * Atbash
 * Rail-Fence
-
+* Affine
