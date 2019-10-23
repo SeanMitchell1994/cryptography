@@ -85,32 +85,15 @@ def Next(count):
     return countd
 
 def Decrypt2(ciphertext, rails):
-    temp_string = ""
-    string_arr = [""] * rails
-    count = -1
-    chk = False
-    str_length = len(ciphertext)
-    #parts = [ciphertext[i:i + 2 * 2 - 2] for i in range(0, len(ciphertext),2)]
-    #print(parts)
+    temp_string = ""                # Empty temp string to store the result
+    string_arr = [""] * rails       # array to store the contents of each rail
+    count = -1                      # UNUSED
+    chk = False                     # UNUSED
+    str_length = len(ciphertext)    # length of the ciphertext stored in a more convenient form
 
-    # ALGORITHM:
-    # create an array of size = rails
-    # fill each index with a string representing each rail
-    # each character on the rail is separated by 2(key) - 2 spaces
-    # sum first character of each index, starting from first index of array
-    # move to next character of index and repeat until empty
-
-    # row 1 = 2(3) - 2      = 4,4,4
-    # row 2 = 2(3) - 2 - 2  = 2,1,2
-    # row 3 = 2(3) - 2      = 4,4,4
-
-    #for i in range(len(ciphertext)):
-    #    if (i + 3 > len(ciphertext) - 1): break
-    #    else:
-    #        string_arr[0] += ciphertext[i]
-    #        string_arr[1] += ciphertext[i + 2 * rails - 1]
-
-
+    # Checking if the string length is even or odd
+    # We then choose a midpoint based on that
+    # The encryption function above chunks odd lengths to the left
     if (str_length % 2) == 0:
         string_arr[0] = ciphertext[:str_length//2]
         string_arr[1] = ciphertext[str_length//2:]
@@ -118,7 +101,7 @@ def Decrypt2(ciphertext, rails):
         string_arr[0] = ciphertext[:str_length//2 + 1]
         string_arr[1] = ciphertext[str_length//2 + 1:]
 
-
+    # Sums the first character at each index to get the original string back
     temp_string += str(string_arr[0][0]) + str(string_arr[1][0])
     temp_string += str(string_arr[0][1]) + str(string_arr[1][1])
     temp_string += str(string_arr[0][2]) + str(string_arr[1][2])
