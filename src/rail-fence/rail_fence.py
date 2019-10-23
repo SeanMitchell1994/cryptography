@@ -33,7 +33,7 @@ def Encrypt(plaintext, rails):
     # concatenate resulting string
     for i in string_arr:
         temp_string += i
-    #print(string_arr)
+    print(string_arr)
 
     return temp_string
 
@@ -56,21 +56,13 @@ def Decrypt(ciphertext, rails):
     # go back to c and increment
     #
     # Seems to work only for key of 2
-
-    #print([ciphertext[i:i + 3] for i in range(0, len(ciphertext), 3)])
-    temp = ciphertext
-    for i in range(len(temp)-3):
-        temp = Encrypt(temp,rails)
-        print(temp)
-
-
-    #for i in range(len(ciphertext) // rails):       # Floor division by # of rails
-    #    temp_string += ciphertext[i]
-    #    if ((i + rails + 1) < len(ciphertext)):
-    #        #print(ciphertext[i + rails + 1])
-    #        temp_string += ciphertext[i + rails + 1]
-    #    else:
-    #        break
+    for i in range(len(ciphertext) // rails):       # Floor division by # of rails
+        temp_string += ciphertext[i]
+        if ((i + (2 * rails - 2) + 1) < len(ciphertext)):
+            #print(ciphertext[i + rails + 1])
+            temp_string += ciphertext[i + (2 * rails - 2) + 1]
+        else:
+            break
 
     return temp_string
 
@@ -90,4 +82,46 @@ def Next(count):
         if (count > 3):
             count = 3
             chk = False
-    return count
+    return countd
+
+def Decrypt2(ciphertext, rails):
+    temp_string = ""
+    string_arr = [""] * rails
+    count = -1
+    chk = False
+    str_length = len(ciphertext)
+    #parts = [ciphertext[i:i + 2 * 2 - 2] for i in range(0, len(ciphertext),2)]
+    #print(parts)
+
+    # ALGORITHM:
+    # create an array of size = rails
+    # fill each index with a string representing each rail
+    # each character on the rail is separated by 2(key) - 2 spaces
+    # sum first character of each index, starting from first index of array
+    # move to next character of index and repeat until empty
+
+    # row 1 = 2(3) - 2      = 4,4,4
+    # row 2 = 2(3) - 2 - 2  = 2,1,2
+    # row 3 = 2(3) - 2      = 4,4,4
+
+    #for i in range(len(ciphertext)):
+    #    if (i + 3 > len(ciphertext) - 1): break
+    #    else:
+    #        string_arr[0] += ciphertext[i]
+    #        string_arr[1] += ciphertext[i + 2 * rails - 1]
+
+
+    if (str_length % 2) == 0:
+        string_arr[0] = ciphertext[:str_length//2]
+        string_arr[1] = ciphertext[str_length//2:]
+    elif(str_length % 2) is not 0:
+        string_arr[0] = ciphertext[:str_length//2 + 1]
+        string_arr[1] = ciphertext[str_length//2 + 1:]
+
+
+    temp_string += str(string_arr[0][0]) + str(string_arr[1][0])
+    temp_string += str(string_arr[0][1]) + str(string_arr[1][1])
+    temp_string += str(string_arr[0][2]) + str(string_arr[1][2])
+
+    #print(string_arr)
+    return temp_string
