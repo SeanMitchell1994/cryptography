@@ -56,13 +56,21 @@ def Decrypt(ciphertext, rails):
     # go back to c and increment
     #
     # Seems to work only for key of 2
-    for i in range(len(ciphertext) // rails):       # Floor division by # of rails
-        temp_string += ciphertext[i]
-        if ((i + rails + 1) < len(ciphertext)):
-            #print(ciphertext[i + rails + 1])
-            temp_string += ciphertext[i + rails + 1]
-        else:
-            break
+
+    #print([ciphertext[i:i + 3] for i in range(0, len(ciphertext), 3)])
+    temp = ciphertext
+    for i in range(len(temp)-rails):
+        temp = Encrypt(temp,rails)
+    print(temp)
+
+
+    #for i in range(len(ciphertext) // rails):       # Floor division by # of rails
+    #    temp_string += ciphertext[i]
+    #    if ((i + rails + 1) < len(ciphertext)):
+    #        #print(ciphertext[i + rails + 1])
+    #        temp_string += ciphertext[i + rails + 1]
+    #    else:
+    #        break
 
     return temp_string
 
