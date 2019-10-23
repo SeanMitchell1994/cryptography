@@ -122,6 +122,7 @@ def Decrypt2(ciphertext, rails):
     temp_string += str(string_arr[0][0]) + str(string_arr[1][0])
     temp_string += str(string_arr[0][1]) + str(string_arr[1][1])
     temp_string += str(string_arr[0][2]) + str(string_arr[1][2])
+    if (str_length % 2) is not 0: temp_string += str(string_arr[0][3])
 
     #print(string_arr)
     return temp_string
