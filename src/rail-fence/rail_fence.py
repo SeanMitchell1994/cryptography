@@ -59,9 +59,9 @@ def Decrypt(ciphertext, rails):
 
     #print([ciphertext[i:i + 3] for i in range(0, len(ciphertext), 3)])
     temp = ciphertext
-    for i in range(len(temp)-rails):
+    for i in range(len(temp)-3):
         temp = Encrypt(temp,rails)
-    print(temp)
+        print(temp)
 
 
     #for i in range(len(ciphertext) // rails):       # Floor division by # of rails
